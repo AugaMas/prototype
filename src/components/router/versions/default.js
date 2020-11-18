@@ -1,26 +1,31 @@
-import Test from "../../Test";
-import Cards from "../../Cards";
-import Slider from "../../Carousel";
+import { lazy } from 'react';
 import { v4 as uuidv4 } from "uuid";
+
+const Test = lazy(() => import('../../Test'));
+const Cards = lazy(() => import('../../Cards'));
+const Carousel = lazy(() => import('../../Carousel'));
 
 const routes = [
   {
     path: "/",
     component: Test,
     exact: true,
-    key: uuidv4(),
+    routeKey: uuidv4(),
+    navKey: uuidv4(),
   },
   {
     path: "/cards",
     component: Cards,
     exact: true,
-    key: uuidv4(),
+    routeKey: uuidv4(),
+    navKey: uuidv4(),
   },
   {
     path: "/carousel",
-    component: Slider,
+    component: Carousel,
     exact: true,
-    key: uuidv4(),
+    routeKey: uuidv4(),
+    navKey: uuidv4(),
   },
 ];
 
