@@ -3,7 +3,8 @@ Komandu seka:
 npm install
 json-server --watch server/router.json
 
-# Atsidaryti kita terminala
+Atsidaryti kita terminala
+
 npm start
 
 ## Noredami pakeisti versija
