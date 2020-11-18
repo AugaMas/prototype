@@ -1,13 +1,13 @@
-import React, {useEffect, useState}  from 'react';
+import React, {useEffect, useState, Suspense, lazy}  from 'react';
 import axios from 'axios';
 import {
     Route,
     Switch
 } from "react-router-dom";
+
 import bonuseraRoutes from './versions/bonusera';
 import defaultRoutes from './versions/default';
 import NavBar from '../NavBar';
-
 
 function RouterConfig() {
     const [version, setVersion] = useState(null)
@@ -33,12 +33,16 @@ function RouterConfig() {
     }
 
     return (<>
-            <NavBar routes={getRoutes()}/>
+            <Suspense fallback={<div>Loading...</div>}>
+            <NavBar routes={(getRoutes() || []).map(route => ({key: route.navKey, to: route.path}))}/>
             <Switch>
-            {loading? <div>Loading</div> : (getRoutes() || []).map(route =>
-                <Route {...route} />
-            )}
+                <>
+                    {loading? <div>Loading</div> : (getRoutes() || []).map(route =>
+                        <Route key={route.routeKey} exact={route.exact} path={route.path} component={route.component} />
+                    )}
+                </>
             </Switch>
+            </Suspense>
             </>
     )
   }

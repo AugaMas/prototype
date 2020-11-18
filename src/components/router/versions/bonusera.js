@@ -1,33 +1,41 @@
-import Home from '../../Home';
-import Form from '../../Form';
-import Landing from '../../Landing';
-import Table from '../../Table';
+import { lazy } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
+const Home = lazy(() => import('../../Home'));
+const Form = lazy(() => import('../../Form'));
+const Landing = lazy(() => import('../../Landing'));
+const Table = lazy(() => import('../../Table'));
+
 
 const routes = [
     {   
         path: "/",
         component: Home,
         exact: true,
-        key: uuidv4(),
+        routeKey: uuidv4(),
+        navKey: uuidv4(),
+
     },
     {
         path: "/form",
         component: Form,
         exact: true,
-        key: uuidv4()
+        routeKey: uuidv4(),
+        navKey: uuidv4(),
     },
     {
         path: "/landing",
         component: Landing,
         exact: true,
-        key: uuidv4()
+        routeKey: uuidv4(),
+        navKey: uuidv4(),
     },
     {
         path: "/table",
         component: Table,
         exact: true,
-        key: uuidv4()
+        routeKey: uuidv4(),
+        navKey: uuidv4(),
     },
 ]
 
