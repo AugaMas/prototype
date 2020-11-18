@@ -5,11 +5,11 @@ import Table from '../../Table';
 import { v4 as uuidv4 } from 'uuid';
 
 const routes = [
-    {
+    {   
         path: "/",
         component: Home,
         exact: true,
-        key: uuidv4()
+        key: uuidv4(),
     },
     {
         path: "/form",

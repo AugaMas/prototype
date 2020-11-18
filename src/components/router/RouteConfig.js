@@ -2,10 +2,11 @@ import React, {useEffect, useState}  from 'react';
 import axios from 'axios';
 import {
     Route,
-    Link
-  } from "react-router-dom";
+    Switch
+} from "react-router-dom";
 import bonuseraRoutes from './versions/bonusera';
 import defaultRoutes from './versions/default';
+import NavBar from '../NavBar';
 
 
 function RouterConfig() {
@@ -31,10 +32,14 @@ function RouterConfig() {
         }
     }
 
-    return (
-            loading? <div>Loading</div> : (getRoutes() || []).map(route =>
+    return (<>
+            <NavBar routes={getRoutes()}/>
+            <Switch>
+            {loading? <div>Loading</div> : (getRoutes() || []).map(route =>
                 <Route {...route} />
-            )
+            )}
+            </Switch>
+            </>
     )
   }
 

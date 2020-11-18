@@ -1,11 +1,10 @@
 import React from "react";
-import Router from "./router/Router";
+import RouteConfig from "./router/RouteConfig";
 
 function App() {
   return (
     <div>
-      Appsas
-      <Router />
+      <RouteConfig />
     </div>
   );
 }
